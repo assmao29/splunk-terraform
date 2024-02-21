@@ -105,15 +105,15 @@ resource "aws_security_group" "web-sg" {
 #data for amazon linux
 
 data "aws_ami" "amazon_linux_2" {
-    most_recent = true
-  
-    filter {
-      name = "name"
-      #values = ["amzn2-ami-hvm-*-x86_64-ebs"]
-      values = ["amzn-ami-hvm-*x86_64-gp2"]
-    }
-    owners = ["amazon"]
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
 }
+
 
 #create ec2 instances
 
